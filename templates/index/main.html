@@ -1,0 +1,43 @@
+{% load post_filter_tag %}
+		<div id="content">
+			<div class="png">
+				<img class="top" src="media/static_media/images/top-curve.png" width="724" height="8" alt="" />
+			</div>
+			<div id="inner-content">
+				
+				<div class="post border clearfix post-highlight">
+					{% get_latest_post as latest_post %}
+					<h1><a href="/post/{{latest_post.id}}">{{latest_post.title}}</a></h1>
+					<div class="thumbnail-larger">
+						<a href="/">
+							<img src="/" alt="Some alt" style="width:380px; height:223px;" />
+						</a>
+					</div><!-- thumbnail-larger-->
+					
+					<div class="text">
+						<div>{{ latest_post.content }}</div>
+						<span class="read-more"><a href="/post/{{latest_post.id}}">閱讀更多...</a></span>
+						<div class="rating-bg"></div>
+						<div class="rating rating-4">4</div>
+					</div><!-- text -->
+				</div><!-- post border clearfix post-hiehglight-->
+				
+				{% get_latest posts.Post 5 as post_list %}
+				{% for post in post_list %}
+				<div class="post border clearfix post-normal">
+					<div class="thumbnail-small">
+						<a href="/post/{{post.id}}">
+							<img src="/" alt="some alt" style="width:146px; height:146px;" \>
+						</a>
+					</div><!-- thumbnail-small-->
+					<h2><a href="/post/{{post.id}}" title="">{{post.title}}</a></h2>
+					<div class="text-short">
+						<div>{{post.content}}</div>
+					</div><!-- text-short -->
+					<span class="read-more-short"><a href="/post.id">閱讀更多...</a></span>    
+				</div><!-- post border clearfix post-normal -->
+				{% endfor %}
+	
+			</div><!-- inner content -->
+		</div><!-- content -->
+							

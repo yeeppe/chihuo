@@ -1,0 +1,20 @@
+{% load post_filter_tag %}
+<div id="content">
+	<div id="inner-content">
+			{{message}}
+			{% get_latest rsvp.ChihuoEvent 5 as event_list%}
+			{% for event in event_list%}
+					<div class="post border clearfix post-normal">
+						<div class="thumbnail-small"><a href="/"><img src="/" alt="some alt" style="width:146px; height:146px;" \></a></div><!-- thumbnail-small-->
+						<h2><a href="/" title="">{{ event.title }}</a></h2>
+						<div class="text-short"><div>{{ event.description }}</div></div><!-- text-short -->
+						<form action="/rsvp/join/" method="POST">
+							{% csrf_token %}
+							<p><input type="submit" value="Join!>"></p>
+						</form>
+					</div><!-- post border clearfix post-normal -->
+			{% endfor %}
+		
+	</div><!-- inner content-->
+
+</div><!-- content-->

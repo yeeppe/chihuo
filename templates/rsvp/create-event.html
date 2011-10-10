@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title>Step {{ step }}</title>
+</head>
+<body>
+	<h1>STEP {{ step }}</h1>
+	{% if acticity_title %} {{ acticity_title }} {% endif %}
+	<form action="/rsvp/create/" method="POST">
+		{% csrf_token %}
+		<table>
+
+			{{ form.as_table }}
+		</table>
+		<p><input type="submit" value="NEXT>"></p>
+	</form>
+</body>
+</html>
